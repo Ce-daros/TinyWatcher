@@ -24,6 +24,18 @@ def ram_free():
     return str(util.get_RAM(1)[2])
 
 
+@app.route('/net_speed')
+def net_speed():
+    r = util.get_NetIO()
+    return str(r[0]+"|"+r[1])
+
+
+@app.route('/disk_speed')
+def disk_speed():
+    r = util.get_DiskIO()
+    return str(r[0]+"|"+r[1])
+
+
 @app.route('/all')
 def all():
 

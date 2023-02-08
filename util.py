@@ -1,4 +1,5 @@
 import psutil
+import time
 
 p = psutil.Process()
 
@@ -20,13 +21,21 @@ def get_RAM(c):
 
 
 def get_DiskIO():
-    i = psutil.disk_io_counters()
-    return [bytesAutoformat(i.read_bytes), bytesAutoformat(i.write_bytes)]
+    send1 = psutil.disk_io_counters()[0]
+    recv1 = psutil.disk_io_counters()[1]
+    time.sleep(1)
+    send2 = psutil.disk_io_counters()[0]
+    recv2 = psutil.disk_io_counters()[1]
+    return [bytesAutoformat(send2-send1), bytesAutoformat(recv2-recv1)]
 
 
 def get_NetIO():
-    i = psutil.net_io_counters()
-    return [bytesAutoformat(i.bytes_recv), bytesAutoformat(i.bytes_sent)]
+    send1 = psutil.net_io_counters()[0]
+    recv1 = psutil.net_io_counters()[1]
+    time.sleep(1)
+    send2 = psutil.net_io_counters()[0]
+    recv2 = psutil.net_io_counters()[1]
+    return [bytesAutoformat(send2-send1), bytesAutoformat(recv2-recv1)]
 
 
 def bytesAutoformat(b):
