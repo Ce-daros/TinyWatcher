@@ -59,7 +59,7 @@ const Disk_O = computed(() => {
   </div>
   <div class="card">
     <div class="icon-box">
-      <img src="../assets/ram.png" class="icon">
+      <img src="../assets/disk.png" class="icon">
     </div>
     <div class="card-information">
       <div class="card-title">Disk</div>
@@ -68,7 +68,7 @@ const Disk_O = computed(() => {
   </div>
   <div class="card">
     <div class="icon-box">
-      <img src="../assets/ram.png" class="icon">
+      <img src="../assets/net.png" class="icon">
     </div>
     <div class="card-information">
       <div class="card-title">Network</div>
