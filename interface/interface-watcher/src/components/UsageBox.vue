@@ -10,6 +10,8 @@ function xhrRequest(url){
   xhr.send(null);
   return xhr.response;
 }
+net_r = xhrRequest("net_speed")
+disk_r = xhrRequest("disk_speed")
 const CPU_Usage = computed(() => {
   return xhrRequest("cpu")
 })
@@ -21,6 +23,18 @@ const RAM_Used = computed(() => {
 })
 const RAM_Total = computed(() => {
   return xhrRequest("ram_total")
+})
+const Net_I = computed(() => {
+  return net_r.split("|")[1]
+})
+const Net_O = computed(() => {
+  return net_r.split("|")[0]
+})
+const Disk_I = computed(() => {
+  return disk_r.split("|")[1]
+})
+const Disk_O = computed(() => {
+  return disk_r.split("|")[0]
 })
 </script>
 
@@ -41,6 +55,24 @@ const RAM_Total = computed(() => {
     <div class="card-information">
       <div class="card-title">RAM</div>
       <div class="card-mainthing">{{ RAM_Total }} / {{ RAM_Used }} GiB</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="icon-box">
+      <img src="../assets/ram.png" class="icon">
+    </div>
+    <div class="card-information">
+      <div class="card-title">Disk</div>
+      <div class="card-mainthing">{{ Disk_I }} / {{ Disk_O }}</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="icon-box">
+      <img src="../assets/ram.png" class="icon">
+    </div>
+    <div class="card-information">
+      <div class="card-title">Network</div>
+      <div class="card-mainthing">{{ Net_I }} / {{ Net_O }}</div>
     </div>
   </div>
 </template>
