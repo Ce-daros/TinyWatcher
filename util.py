@@ -26,7 +26,7 @@ def get_DiskIO():
     time.sleep(0.5)
     send2 = int(psutil.disk_io_counters()[0])
     recv2 = int(psutil.disk_io_counters()[1])
-    return [bytesAutoformat((send2-send1)*2), bytesAutoformat((recv2-recv1))*2]
+    return [bytesAutoformat((send2-send1)*2), bytesAutoformat((recv2-recv1)*2)]
 
 
 def get_NetIO():
@@ -35,7 +35,7 @@ def get_NetIO():
     time.sleep(0.5)
     send2 = psutil.net_io_counters()[0]
     recv2 = psutil.net_io_counters()[1]
-    return [bytesAutoformat((send2-send1)*2), bytesAutoformat((recv2-recv1))*2]
+    return [bytesAutoformat((send2-send1)*2), bytesAutoformat((recv2-recv1)*2)]
 
 
 def bytesAutoformat(b):
