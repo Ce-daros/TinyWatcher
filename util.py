@@ -6,7 +6,7 @@ p = psutil.Process()
 
 def get_CPU_usage():
     psutil.cpu_percent(interval=0.1)
-    p_cpu = psutil.cpu_percent(interval=2)
+    p_cpu = psutil.cpu_percent(interval=1)
     return str(p_cpu)
 
 
@@ -23,19 +23,19 @@ def get_RAM(c):
 def get_DiskIO():
     send1 = psutil.disk_io_counters()[0]
     recv1 = psutil.disk_io_counters()[1]
-    time.sleep(1)
+    time.sleep(0.5)
     send2 = psutil.disk_io_counters()[0]
     recv2 = psutil.disk_io_counters()[1]
-    return [bytesAutoformat(send2-send1), bytesAutoformat(recv2-recv1)]
+    return [bytesAutoformat((send2-send1)*2), bytesAutoformat((recv2-recv1))*2]
 
 
 def get_NetIO():
     send1 = psutil.net_io_counters()[0]
     recv1 = psutil.net_io_counters()[1]
-    time.sleep(1)
+    time.sleep(0.5)
     send2 = psutil.net_io_counters()[0]
     recv2 = psutil.net_io_counters()[1]
-    return [bytesAutoformat(send2-send1), bytesAutoformat(recv2-recv1)]
+    return [bytesAutoformat((send2-send1)*2), bytesAutoformat((recv2-recv1))*2]
 
 
 def bytesAutoformat(b):
