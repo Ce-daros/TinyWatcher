@@ -54,7 +54,7 @@ const Disk_O = computed(() => {
     </div>
     <div class="card-information">
       <div class="card-title">RAM</div>
-      <div class="card-mainthing">{{ RAM_Total }} / {{ RAM_Used }} GiB</div>
+      <div class="card-mainthing">{{ RAM_Used }} / {{ RAM_Total }} GiB</div>
     </div>
   </div>
   <div class="card">
