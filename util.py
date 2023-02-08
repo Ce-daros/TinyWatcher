@@ -21,11 +21,11 @@ def get_RAM(c):
 
 
 def get_DiskIO():
-    send1 = psutil.disk_io_counters()[0]
-    recv1 = psutil.disk_io_counters()[1]
+    send1 = int(psutil.disk_io_counters()[0])
+    recv1 = int(psutil.disk_io_counters()[1])
     time.sleep(0.5)
-    send2 = psutil.disk_io_counters()[0]
-    recv2 = psutil.disk_io_counters()[1]
+    send2 = int(psutil.disk_io_counters()[0])
+    recv2 = int(psutil.disk_io_counters()[1])
     return [bytesAutoformat((send2-send1)*2), bytesAutoformat((recv2-recv1))*2]
 
 
