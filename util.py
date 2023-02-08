@@ -6,20 +6,17 @@ p = psutil.Process()
 def get_CPU_usage():
     psutil.cpu_percent(interval=0.1)
     p_cpu = psutil.cpu_percent(interval=2)
-    return str(p_cpu*10)
+    return str(p_cpu)
 
 
-def get_RAM_postcalc(t, c):
-    if c:
-        return str(round(float(t) / 1024 / 1024 / 1024, 2))
-    else:
-        return str(round(float(t) / 1024 / 1024 / 1024, 2)) + " GiB"
+def get_RAM_postcalc(t):
+    return str(round(float(t) / 1024 / 1024 / 1024, 2))
 
 
 def get_RAM(c):
     mem = psutil.virtual_memory()
 
-    return [get_RAM_postcalc(mem.total, c), get_RAM_postcalc(mem.used, c), get_RAM_postcalc(mem.free, c)]
+    return [get_RAM_postcalc(mem.total), get_RAM_postcalc(mem.used), get_RAM_postcalc(mem.free)]
 
 
 def get_DiskIO():
