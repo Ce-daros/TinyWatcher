@@ -10,8 +10,8 @@ function xhrRequest(url){
   xhr.send(null);
   return xhr.response;
 }
-net_r = xhrRequest("net_speed")
-disk_r = xhrRequest("disk_speed")
+var net_r = xhrRequest("net_speed")
+var disk_r = xhrRequest("disk_speed")
 const CPU_Usage = computed(() => {
   return xhrRequest("cpu")
 })
