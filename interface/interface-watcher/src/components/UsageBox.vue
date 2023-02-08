@@ -1,4 +1,4 @@
-<script setup>
+﻿<script setup>
 import { computed } from 'vue'
 var _CPU_Usage = "",
     _RAM_Used = "",_RAM_Total = "",
@@ -63,7 +63,7 @@ const Disk_O = computed(() => {
     </div>
     <div class="card-information">
       <div class="card-title">Disk</div>
-      <div class="card-mainthing">{{ Disk_I }} / {{ Disk_O }}</div>
+      <div class="card-mainthing">{{ Disk_O }} ↑ {{ Disk_I }} ↓</div>
     </div>
   </div>
   <div class="card">
@@ -72,7 +72,7 @@ const Disk_O = computed(() => {
     </div>
     <div class="card-information">
       <div class="card-title">Network</div>
-      <div class="card-mainthing">{{ Net_I }} / {{ Net_O }}</div>
+      <div class="card-mainthing">{{ Net_O }} ↑ {{ Net_I }} ↓ </div>
     </div>
   </div>
 </template>
